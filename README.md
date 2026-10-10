@@ -57,6 +57,7 @@ Example output:
 `const create_subaddr = await wallet.create_address($LABEL,1,true,5)`
 # Generating an account
 `const create_acc = awatit wallet.create_account($LABEL)`
+
 Example output:
 ```
 {
