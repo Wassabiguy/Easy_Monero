@@ -22,7 +22,7 @@ Intialise an instance first.
 You can add a path to the wallet file but the functions used currently don't need it(that's for future features)
 
 ## Want to check the balance of a specific account or a subaddress of the specific account 
-for example a subaddress that belongs to an  account indexed at 0
+for example a subaddress that belongs to an account indexed at 0
 `let getBalance= await wallet.get_balance($SUBADDRESS_INDEX)`
 example output:
 ```
