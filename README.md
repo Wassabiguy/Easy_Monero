@@ -12,7 +12,13 @@ check [Monero RPC documentation](https://docs.getmonero.org/rpc-library/wallet-r
 
 # Example usage
 Intialise an instance first.
-`let wallet = new Wallet({$HOSTNAME_WITH_PORT,$PATH_TO_WALLET})`
+```
+{
+    import {Wallet} from 'wallet.js'
+    let wallet = new Wallet({$HOSTNAME_WITH_PORT,$PATH_TO_WALLET})
+
+}
+```
 You can add a path to the wallet file but the functions used currently don't need it(that's for future features)
 
 ## Want to check the balance of a specific account or a subaddress of the specific account 
@@ -21,7 +27,7 @@ for example a subaddress that belongs to an  account indexed at 0
 example output:
 ```
 {
-      account_index: 0,
+  account_index: 0,
   sub_address: '85MhkjanVTxYF1hbFU4ERMFCs3NTTSgyraMb4eaedpJdNegh44itc25AEz3ZQUVHnUjC9VARoSoupB4yGJyu2MtJ51fkTGn',
   spendable_balance: 0,
   pending_balance: 0,
@@ -30,4 +36,15 @@ example output:
   sub_address_index: 43
 }
 ```
-If you needed to get the balance of a different accou
+# If you needed to get the balance of a different account or its subaddress, for example account indexed at 1 
+`let getBalance= await wallet.get_balance(0,1)`
+# What if I wanted to check for a subaddress indexed at 4 in that account?
+`let getBalance= await wallet.get_balance(4,1)`
+
+# Generating a subaddress 
+`const create_subaddr = await wallet.create_address($LABEL)`
+
+# Generating a single subaddress in a specific account indexed at 5 for example and also saving it in the wallet file, you can turn it to false to not save to the wallet file
+`const create_subaddr = await wallet.create_address($LABEL,1,true,5)`
+# Generating an account
+`const create_acc = awatit wallet.create_account($LABEL)`
