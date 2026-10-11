@@ -84,7 +84,8 @@ const http_request_GetBalance = async(Host,Method,Params)=>{
       spendable_balance: Math.round((info.unlocked_balance) *1e-12),
       pending_balance:(info.balance - info.unlocked_balance)*1e-12,
       network_confirmations_for_pending_balance:10 - info.blocks_to_unlock,
-      label: info.label
+      label: info.label,
+      sub_address_index:info.address_index
     }
     if(info.blocks_to_unlock == 0){
       obj.network_confirmations_for_pending_balance = 0
