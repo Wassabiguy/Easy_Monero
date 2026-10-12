@@ -64,7 +64,7 @@ class wallet{
     return {'message':'Not a valid Monero address!'}
 }
 }
-   sweep_all= async(address,account_index=0,indice_to_subaddr=0,subaddr_indices_all=false,priority=0)=>{
+   sweep_all= async(address,indice_to_subaddr=0,account_index=0,subaddr_indices_all=false,priority=0)=>{
     let method = "sweep_all"
     let params ={
         "address":address,
