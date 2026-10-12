@@ -95,7 +95,7 @@ const http_request_GetBalance = async(Host,Method,Params)=>{
 
 const http_request_Transfer = async (Host,Method,Params) => {
     let req = await Http_request(Host,Method,Params)
-    return req
+    return req.result
 }
 
 const check_if_valid_address = async (Host,Method,Params) => {
