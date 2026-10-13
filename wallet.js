@@ -1,5 +1,5 @@
 import axios from "axios"
-import {http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address, http_request_Transfer,http_request_CreateSubaddress, http_request_GetBalance } from "./simple.js"
+import {http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address, http_request_Transfer,http_request_CreateSubaddress, http_request_GetBalance_SubAddr } from "./simple.js"
 class wallet{
     constructor(info={
         'Host':Host,
@@ -33,7 +33,7 @@ class wallet{
         'account_index':account_index,
         'address_indices':[Number(subaddress_indice)]
     }
-    let req = await http_request_GetBalance(this.host,'get_balance',params)
+    let req = await http_request_GetBalance_SubAddr(this.host,'get_balance',params)
     
     return req   
     }
