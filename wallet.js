@@ -27,7 +27,7 @@ class wallet{
         return req
     }
 
-   get_balance = async(subaddress_indice,account_index=0,Persistance=false) => {
+   get_balance_of_subAddr = async(subaddress_indice,account_index=0,Persistance=false) => {
     
     let params ={
         'account_index':account_index,
