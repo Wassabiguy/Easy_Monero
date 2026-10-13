@@ -81,8 +81,8 @@ const http_request_GetBalance = async(Host,Method,Params)=>{
     let obj = {
       account_index: info.account_index,
       sub_address: info.address,
-      spendable_balance: info.unlocked_balance *1e-12,
-      pending_balance:(info.balance - info.unlocked_balance)*1e-12,
+      spendable_balance: (info.unlocked_balance *1e-12).toFixed(12),
+      pending_balance:((info.balance - info.unlocked_balance)*1e-12).toFixed(12),
       network_confirmations_for_pending_balance:10 - info.blocks_to_unlock,
       label: info.label,
       sub_address_index:info.address_index
