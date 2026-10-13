@@ -74,7 +74,7 @@ return
 }
 
 
-const http_request_GetBalance = async(Host,Method,Params)=>{
+const http_request_GetBalance_SubAddr = async(Host,Method,Params)=>{
     let req_refresh = await Http_request(Host,'refresh',null)
     let req_balance = await Http_request(Host,Method,Params)
     let info =req_balance.result.per_subaddress[0]
@@ -121,4 +121,4 @@ const http_request_WithdrawAllTheMoney = async (Host,Method,Params) => {
 
 
 
-export{http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address,http_request_Transfer,Check_if_string,Check_if_number,http_request_CreateSubaddress,http_request_GetBalance}
+export{http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address,http_request_Transfer,Check_if_string,Check_if_number,http_request_CreateSubaddress,http_request_GetBalance_SubAddr}
