@@ -168,3 +168,14 @@ Example output:
   }
 }
 ```
+# Get the wallet/unlocked/locked_balance of the wallet
+`let balance = await wallet.get_wallet_total_balance()`
+
+Example output:
+```
+{
+  Wallet_balance: '0.000101833864',
+  unlocked_balance: '0.000101833864',
+  locked_balance: '0.000000000000'
+}
+```
