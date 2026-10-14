@@ -92,10 +92,9 @@ class wallet{
    }
 
 
-get_wallet_total_balance = async(account_index,all_accounts=true)=>{
+get_wallet_total_balance = async()=>{
 let params = {
-'account_index':account_index,
-'all_accounts':all_accounts
+'all_accounts':true
 }
 let req = await http_request_GetWalletBalance(this.host,'get_balance',params)
 let output = req.result
