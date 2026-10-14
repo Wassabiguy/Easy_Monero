@@ -106,7 +106,9 @@ Example output:
 It's important to note that this feature might not send the specific amount you want, you need to cut little bit from the amount you want to send just to pay the fee to the network in order to get the transaction processed 
 
 # sweep all funds from subaddresses in a certain account:
-`let sweep_all = await wallet.sweep_all($DESTINATION_ADDRESS,$ACCOUNT_INDEX,true,$SUBADDRES_INDEX)`
+```
+let sweep_all = await wallet.sweep_all($DESTINATION_ADDRESS,$ACCOUNT_INDEX,true,$SUBADDRES_INDEX)
+```
 
 Example output:
 ```
