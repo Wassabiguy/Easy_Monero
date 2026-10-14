@@ -119,6 +119,10 @@ const http_request_WithdrawAllTheMoney = async (Host,Method,Params) => {
      return req
 }
 
+const http_request_GetWalletBalance = async (Host,Method,Params) => {
+  let req_refresh = await Http_request(Host,'refresh',null)
+  let req = await Http_request(Host,Method,Params)
+  return req
+}
 
-
-export{http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address,http_request_Transfer,Check_if_string,Check_if_number,http_request_CreateSubaddress,http_request_GetBalance_SubAddr}
+export{http_request_GetWalletBalance,http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address,http_request_Transfer,Check_if_string,Check_if_number,http_request_CreateSubaddress,http_request_GetBalance_SubAddr}

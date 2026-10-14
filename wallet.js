@@ -1,5 +1,5 @@
 import axios from "axios"
-import {http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address, http_request_Transfer,http_request_CreateSubaddress, http_request_GetBalance_SubAddr } from "./simple.js"
+import {http_request_GetWalletBalance,http_request_WithdrawAllTheMoney,http_request_CreateAccount,check_if_valid_address, http_request_Transfer,http_request_CreateSubaddress, http_request_GetBalance_SubAddr } from "./simple.js"
 class wallet{
     constructor(info={
         'Host':Host,
@@ -79,11 +79,46 @@ class wallet{
         let Is_Valid =rew.result.valid
     if(Is_Valid == true){
     let req = await http_request_WithdrawAllTheMoney(this.host,method,params)
-    return req
+    let output = req.result
+    let objP = {
+        amount:(output.amount_list[0]* 1e-12).toFixed(12),
+        transaction_hash:output.tx_hash_list[0],
+        fee:output.fee_list[0]
+    }
+    return {'complex':output,'simple':objP}
 }else{
     return {'message':'Not a valid Monero address!'}
 }
    }
+
+
+get_wallet_total_balance = async(account_index,all_accounts=true)=>{
+let params = {
+'account_index':account_index,
+'all_accounts':all_accounts
+}
+let req = await http_request_GetWalletBalance(this.host,'get_balance',params)
+let output = req.result
+let obj = {
+    Wallet_balance:(output.balance*1e-12).toFixed(12),
+    unlocked_balance:(output.unlocked_balance*1e-12).toFixed(12),
+    locked_balance: null
+}
+let subs = obj.Wallet_balance - obj.unlocked_balance
+obj.locked_balance = subs.toFixed(12)
+return obj
+}
+
+
+
+
+
+
+
+
+
+
+
 }
 
 export{wallet}
