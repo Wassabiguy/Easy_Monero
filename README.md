@@ -139,9 +139,7 @@ Example output:
 # sweep all funds from a specific subaddress:
 
 ```
-
 let sweep_all = await wallet.sweep_all($DESTINATION_ADDRESS,$ACCOUNT_INDEX,false,$SUBADDRES_INDEX)
-
 ```
 Example output:
 ```
